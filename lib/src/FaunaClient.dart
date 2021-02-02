@@ -80,7 +80,10 @@ class FaunaClient {
           body: json.encode(expression),
         )
         .timeout(config.timeout)
-        .then((Response response) => FaunaResponse.fromBody(response.body));
+        .then((Response response) {
+      print(response.headers);
+      return FaunaResponse.fromBody(response.body);
+    });
   }
 
   /// Closes and releases all client resources.
