@@ -147,9 +147,16 @@ class FaunaResponse {
   @JsonKey(nullable: true, includeIfNull: false)
   final List<Map<String, dynamic>> errors;
 
+  @JsonKey(
+    includeIfNull: false,
+    fromJson: Result.unwrap_values,
+    toJson: Expr.wrap_values,
+  )
+  Object responseHeaders;
+
   bool get hasErrors => (errors != null);
 
-  FaunaResponse({this.resource, this.errors});
+  FaunaResponse({this.resource, this.errors, this.responseHeaders});
 
   /// Convenience method to convert result to a Dart Map
   Map<String, dynamic> asMap() {

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 
+import '../faunadb_http.dart';
 import './FaunaConfig.dart';
 import 'fql/result.dart';
 
@@ -80,7 +81,13 @@ class FaunaClient {
           body: json.encode(expression),
         )
         .timeout(config.timeout)
-        .then((Response response) => FaunaResponse.fromBody(response.body));
+        .then((Response response) {
+      var responsePayload = FaunaResponse.fromBody(response.body);
+      if (config.includeResponseHeaders) {
+        responsePayload.responseHeaders = response.headers;
+      }
+      return responsePayload;
+    });
   }
 
   /// Closes and releases all client resources.
