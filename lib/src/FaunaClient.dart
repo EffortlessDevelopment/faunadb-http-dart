@@ -83,9 +83,11 @@ class FaunaClient {
         .timeout(config.timeout)
         .then((Response response) {
       var responsePayload = FaunaResponse.fromBody(response.body);
+
       if (config.includeResponseHeaders) {
         responsePayload.responseHeaders = response.headers;
       }
+
       return responsePayload;
     });
   }
