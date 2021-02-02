@@ -25,6 +25,9 @@ class FaunaConfig {
   /// Max amount of time to wait for query response.
   final Duration timeout;
 
+  /// Flag indicating whether to include the response headers in the FaunaResponse.
+  final bool includeResponseHeaders;
+
   /// Max amount of time to wait for query execution on server.
   ///
   /// If specified, this value is sent as the
@@ -93,6 +96,7 @@ class FaunaConfig {
     this.headers,
     this.timeout,
     this.queryTimeout,
+    this.includeResponseHeaders,
   });
 
   /// Builds a [FaunaConfig] with sensible defaults. A FaunaDB [secret] must be provided.
@@ -111,6 +115,7 @@ class FaunaConfig {
     Map<String, String> headers = const {},
     Duration timeout = const Duration(minutes: 1),
     Duration queryTimeout,
+    bool includeResponseHeaders,
   }) {
     final isHttp = (scheme == 'https');
     final defaultPort = (isHttp ? 443 : 80);
@@ -122,6 +127,7 @@ class FaunaConfig {
       headers: headers,
       timeout: timeout,
       queryTimeout: queryTimeout,
+      includeResponseHeaders: includeResponseHeaders,
     );
   }
 
@@ -135,6 +141,8 @@ class FaunaConfig {
       headers: mergeWith.headers ?? headers,
       timeout: mergeWith.timeout ?? timeout,
       queryTimeout: mergeWith.queryTimeout ?? queryTimeout,
+      includeResponseHeaders:
+          mergeWith.includeResponseHeaders ?? includeResponseHeaders,
     );
   }
 }
