@@ -74,6 +74,8 @@ class FaunaClient {
   /// [config.timeout].
   Future<FaunaResponse> query(Object expression, {FaunaConfig options}) {
     final config = (options == null ? this.config : this.config.merge(options));
+    print('fauna query config:');
+    print(config.toString());
     return _httpClient
         .post(
           config.baseUrl,
