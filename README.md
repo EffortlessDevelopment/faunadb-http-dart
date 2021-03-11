@@ -139,7 +139,3 @@ each type of difference.
     - `Map` becomes `Map_`
     - `Function` becomes `Function_`
     - `default` becomes `default_`
-
-## Contributors
-
-Can be found in `CONTRIBUTORS.md`

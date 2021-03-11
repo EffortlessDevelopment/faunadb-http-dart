@@ -113,13 +113,13 @@ Map<String, dynamic> _$IsNonEmptyToJson(IsNonEmpty instance) =>
 Join _$JoinFromJson(Map<String, dynamic> json) {
   return Join(
     json['join'],
-    json['with'],
+    json['detail'],
   );
 }
 
 Map<String, dynamic> _$JoinToJson(Join instance) => <String, dynamic>{
       'join': instance.source,
-      'with': instance.detail,
+      'detail': instance.detail,
     };
 
 Map_ _$Map_FromJson(Map<String, dynamic> json) {
