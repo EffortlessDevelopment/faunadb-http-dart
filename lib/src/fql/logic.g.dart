@@ -6,9 +6,29 @@ part of 'logic.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+All _$AllFromJson(Map<String, dynamic> json) {
+  return All(
+    json['all'] as Object,
+  );
+}
+
+Map<String, dynamic> _$AllToJson(All instance) => <String, dynamic>{
+      'all': instance.values,
+    };
+
+Any _$AnyFromJson(Map<String, dynamic> json) {
+  return Any(
+    json['any'] as Object,
+  );
+}
+
+Map<String, dynamic> _$AnyToJson(Any instance) => <String, dynamic>{
+      'any': instance.values,
+    };
+
 And _$AndFromJson(Map<String, dynamic> json) {
   return And(
-    json['and'],
+    json['and'] as Object,
   );
 }
 
@@ -18,8 +38,8 @@ Map<String, dynamic> _$AndToJson(And instance) => <String, dynamic>{
 
 Contains _$ContainsFromJson(Map<String, dynamic> json) {
   return Contains(
-    json['contains'],
-    json['in'],
+    json['contains'] as Object,
+    json['in'] as Object,
   );
 }
 
@@ -30,7 +50,7 @@ Map<String, dynamic> _$ContainsToJson(Contains instance) => <String, dynamic>{
 
 Equals _$EqualsFromJson(Map<String, dynamic> json) {
   return Equals(
-    json['equals'],
+    json['equals'] as Object,
   );
 }
 
@@ -41,7 +61,7 @@ Map<String, dynamic> _$EqualsToJson(Equals instance) => <String, dynamic>{
 Exists _$ExistsFromJson(Map<String, dynamic> json) {
   $checkKeys(json, disallowNullValues: const ['ts']);
   return Exists(
-    json['exists'],
+    json['exists'] as Object,
     ts: json['ts'],
   );
 }
@@ -63,7 +83,7 @@ Map<String, dynamic> _$ExistsToJson(Exists instance) {
 
 GT _$GTFromJson(Map<String, dynamic> json) {
   return GT(
-    json['gt'],
+    json['gt'] as Object,
   );
 }
 
@@ -73,7 +93,7 @@ Map<String, dynamic> _$GTToJson(GT instance) => <String, dynamic>{
 
 GTE _$GTEFromJson(Map<String, dynamic> json) {
   return GTE(
-    json['gte'],
+    json['gte'] as Object,
   );
 }
 
@@ -83,7 +103,7 @@ Map<String, dynamic> _$GTEToJson(GTE instance) => <String, dynamic>{
 
 LT _$LTFromJson(Map<String, dynamic> json) {
   return LT(
-    json['lt'],
+    json['lt'] as Object,
   );
 }
 
@@ -93,7 +113,7 @@ Map<String, dynamic> _$LTToJson(LT instance) => <String, dynamic>{
 
 LTE _$LTEFromJson(Map<String, dynamic> json) {
   return LTE(
-    json['lte'],
+    json['lte'] as Object,
   );
 }
 
@@ -103,7 +123,7 @@ Map<String, dynamic> _$LTEToJson(LTE instance) => <String, dynamic>{
 
 Not _$NotFromJson(Map<String, dynamic> json) {
   return Not(
-    json['not'],
+    json['not'] as Object,
   );
 }
 
@@ -113,7 +133,7 @@ Map<String, dynamic> _$NotToJson(Not instance) => <String, dynamic>{
 
 Or _$OrFromJson(Map<String, dynamic> json) {
   return Or(
-    json['or'],
+    json['or'] as Object,
   );
 }
 

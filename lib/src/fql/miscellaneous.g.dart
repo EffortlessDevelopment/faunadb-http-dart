@@ -8,7 +8,7 @@ part of 'miscellaneous.dart';
 
 Abort _$AbortFromJson(Map<String, dynamic> json) {
   return Abort(
-    json['abort'],
+    json['abort'] as Object,
   );
 }
 
@@ -19,7 +19,7 @@ Map<String, dynamic> _$AbortToJson(Abort instance) => <String, dynamic>{
 Collection _$CollectionFromJson(Map<String, dynamic> json) {
   $checkKeys(json, disallowNullValues: const ['database']);
   return Collection(
-    json['collection'],
+    json['collection'] as Object,
     database: json['database'],
   );
 }
@@ -53,10 +53,10 @@ Map<String, dynamic> _$CollectionsToJson(Collections instance) =>
 Database _$DatabaseFromJson(Map<String, dynamic> json) {
   $checkKeys(json, disallowNullValues: const ['scope']);
   return Database(
-    json['database'],
+    json['database'] as Object,
     database: json['scope'] == null
         ? null
-        : Ref.fromJson(json['scope'] as Map<String, dynamic>),
+        : Expr.fromJson(json['scope'] as Map<String, dynamic>),
   );
 }
 
@@ -87,7 +87,7 @@ Map<String, dynamic> _$DatabasesToJson(Databases instance) => <String, dynamic>{
 
 Documents _$DocumentsFromJson(Map<String, dynamic> json) {
   return Documents(
-    json['documents'],
+    json['documents'] as Object,
   );
 }
 
@@ -101,7 +101,7 @@ Function_ _$Function_FromJson(Map<String, dynamic> json) {
     json['function'] as String,
     database: json['database'] == null
         ? null
-        : Ref.fromJson(json['database'] as Map<String, dynamic>),
+        : Expr.fromJson(json['database'] as Map<String, dynamic>),
   );
 }
 
@@ -124,7 +124,7 @@ Functions _$FunctionsFromJson(Map<String, dynamic> json) {
   return Functions(
     database: json['functions'] == null
         ? null
-        : Ref.fromJson(json['functions'] as Map<String, dynamic>),
+        : Expr.fromJson(json['functions'] as Map<String, dynamic>),
   );
 }
 
@@ -135,7 +135,7 @@ Map<String, dynamic> _$FunctionsToJson(Functions instance) => <String, dynamic>{
 Index _$IndexFromJson(Map<String, dynamic> json) {
   $checkKeys(json, disallowNullValues: const ['database']);
   return Index(
-    json['index'],
+    json['index'] as Object,
     database: json['database'],
   );
 }
@@ -159,7 +159,7 @@ Indexes _$IndexesFromJson(Map<String, dynamic> json) {
   return Indexes(
     database: json['indexes'] == null
         ? null
-        : Ref.fromJson(json['indexes'] as Map<String, dynamic>),
+        : Expr.fromJson(json['indexes'] as Map<String, dynamic>),
   );
 }
 
@@ -173,9 +173,7 @@ NewId _$NewIdFromJson(Map<String, dynamic> json) {
 
 Query _$QueryFromJson(Map<String, dynamic> json) {
   return Query(
-    json['query'] == null
-        ? null
-        : Lambda.fromJson(json['query'] as Map<String, dynamic>),
+    Lambda.fromJson(json['query'] as Map<String, dynamic>),
   );
 }
 
@@ -188,7 +186,7 @@ Ref _$RefFromJson(Map<String, dynamic> json) {
     json['ref'] == null
         ? null
         : Expr.fromJson(json['ref'] as Map<String, dynamic>),
-    json['id'] as String,
+    json['id'] as String?,
   );
 }
 
@@ -224,7 +222,7 @@ Roles _$RolesFromJson(Map<String, dynamic> json) {
   return Roles(
     database: json['roles'] == null
         ? null
-        : Ref.fromJson(json['roles'] as Map<String, dynamic>),
+        : Expr.fromJson(json['roles'] as Map<String, dynamic>),
   );
 }
 

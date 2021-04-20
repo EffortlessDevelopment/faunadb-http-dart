@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.13.1] - 2021-04-02
+
+### Changed
+
+- All `Ref` type parameters updated to be `Expr`; allows more flexible query creation
+
+
+## [0.13.0] - 2021-03-26
+
+### Added
+
+- String `NGram` FQL function
+
+## [0.12.0] - 2021-03-16
+
+### Changed
+
+- Adjustments to null safety
+- Function `merge` has been deprecated due to null-safety changes.
+- Updated dependencies
+
+## [0.11.0] - 2021-03-15
+
+### Added
+
+- Set FQL functions:
+    - `All`, `Any`,`Range`, `Reduce`
+
+## [0.10.0] - 2021-03-10
+
+### Added
+
+- Time FQL functions:
+    - `TimeAdd`, `TimeSubtract`, `TimeDiff`
+
+## [0.9.1] - 2021-02-25
+
+### Changed
+
+- Fixed `Join` FQL function (incorrect JSON name of parameter)
+
 ## [0.9.0] - 2020-12-14
 
 ### Added
@@ -125,6 +166,18 @@ All notable changes to this project will be documented in this file.
 
 - `FaunaDBConfig` class
 - `FaunaDBClient` class
+
+[0.13.1]: https://github.com/gavanitrate/faunadb-http-dart/compare/0.13.0...0.13.1
+
+[0.13.0]: https://github.com/gavanitrate/faunadb-http-dart/compare/0.12.0...0.13.0
+
+[0.12.0]: https://github.com/gavanitrate/faunadb-http-dart/compare/0.11.0...0.12.0
+
+[0.11.0]: https://github.com/gavanitrate/faunadb-http-dart/compare/0.10.0...0.11.0
+
+[0.10.0]: https://github.com/gavanitrate/faunadb-http-dart/compare/0.9.1...0.10.0
+
+[0.9.1]: https://github.com/gavanitrate/faunadb-http-dart/compare/0.9.0...0.9.1
 
 [0.9.0]: https://github.com/gavanitrate/faunadb-http-dart/compare/0.8.1...0.9.0
 
