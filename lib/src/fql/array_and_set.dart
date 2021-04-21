@@ -196,7 +196,7 @@ class Match extends Expr {
   final Object index;
 
   @JsonKey(disallowNullValue: true, includeIfNull: false)
-  final List terms;
+  final List? terms;
 
   Match(this.index, {this.terms});
 
@@ -224,9 +224,60 @@ class Prepend extends Expr {
 }
 
 @JsonSerializable()
+class Range extends Expr {
+  @JsonKey(name: 'range')
+  final Object set;
+
+  @JsonKey(name: 'from')
+  final Object start;
+
+  @JsonKey(name: 'to')
+  final Object end;
+
+  Range(this.set, this.start, this.end);
+
+  factory Range.fromJson(Map<String, dynamic> json) => _$RangeFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$RangeToJson(this);
+}
+
+@JsonSerializable()
+class Reduce extends Expr {
+  @JsonKey(name: 'reduce')
+  final Lambda reducer;
+
+  final Object initial;
+
+  @JsonKey(name: 'collection')
+  final Object arrayOrSet;
+
+  Reduce(this.reducer, this.initial, this.arrayOrSet);
+
+  factory Reduce.fromJson(Map<String, dynamic> json) => _$ReduceFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$ReduceToJson(this);
+}
+
+@JsonSerializable()
+class Reverse extends Expr {
+  @JsonKey(name: 'reverse')
+  final Object source;
+
+  Reverse(this.source);
+
+  factory Reverse.fromJson(Map<String, dynamic> json) =>
+      _$ReverseFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$ReverseToJson(this);
+}
+
+@JsonSerializable()
 class Singleton extends Expr {
   @JsonKey(name: 'singleton')
-  final Ref ref;
+  final Expr ref;
 
   Singleton(this.ref);
 
