@@ -149,10 +149,8 @@ class FaunaResponse {
 
   @JsonKey(
     includeIfNull: false,
-    fromJson: Result.unwrap_values,
-    toJson: Expr.wrap_values,
   )
-  Map responseHeaders;
+  Map<String, dynamic>? responseHeaders;
 
   bool get hasErrors => (errors != null);
 

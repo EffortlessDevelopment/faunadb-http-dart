@@ -109,7 +109,7 @@ Map<String, dynamic> _$IsNonEmptyToJson(IsNonEmpty instance) =>
 Join _$JoinFromJson(Map<String, dynamic> json) {
   return Join(
     json['join'] as Object,
-    json['with'] as Object,
+    json['detail'] as Object,
   );
 }
 

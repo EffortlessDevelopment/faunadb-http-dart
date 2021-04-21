@@ -87,7 +87,7 @@ class FaunaClient {
         .then((Response response) {
       var responsePayload = FaunaResponse.fromBody(response.body);
 
-      if (config.includeResponseHeaders ?? false) {
+      if (config.includeResponseHeaders) {
         responsePayload.responseHeaders = response.headers;
       }
 

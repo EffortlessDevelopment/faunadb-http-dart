@@ -96,7 +96,7 @@ class FaunaConfig {
     this.headers = const <String, String>{},
     this.timeout = const Duration(minutes: 1),
     this.queryTimeout,
-    this.includeResponseHeaders,
+    this.includeResponseHeaders = false,
   });
 
   /// Builds a [FaunaConfig] with sensible defaults. A FaunaDB [secret] must be provided.
@@ -114,7 +114,7 @@ class FaunaConfig {
     int port = 443,
     Map<String, String> headers = const {},
     Duration timeout = const Duration(minutes: 1),
-    bool includeResponseHeaders,
+    bool includeResponseHeaders = false,
     Duration? queryTimeout,
   }) {
     // If the scheme is HTTPS and a custom port was not specified, set to 80
@@ -146,8 +146,7 @@ class FaunaConfig {
       headers: mergeWith.headers,
       timeout: mergeWith.timeout,
       queryTimeout: mergeWith.queryTimeout ?? queryTimeout,
-      includeResponseHeaders:
-          mergeWith.includeResponseHeaders ?? includeResponseHeaders,
+      includeResponseHeaders: mergeWith.includeResponseHeaders,
     );
   }
 }
