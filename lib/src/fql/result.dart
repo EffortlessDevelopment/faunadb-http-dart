@@ -152,7 +152,7 @@ class FaunaResponse {
     fromJson: Result.unwrap_values,
     toJson: Expr.wrap_values,
   )
-  Object responseHeaders;
+  Map responseHeaders;
 
   bool get hasErrors => (errors != null);
 
